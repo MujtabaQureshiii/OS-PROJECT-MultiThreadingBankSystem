@@ -1,42 +1,117 @@
-# Bank and ATM System
+<p align="center">
+  <img src="banner.png" alt="Banking System Banner" width="100%">
+</p>
 
-This project simulates a **Bank** and an **ATM** system, where multiple accounts can be managed concurrently. The system uses **semaphores**, **mutexes**, and **message queues (IPC)** to facilitate safe and concurrent transactions. The ATM system interacts with the Bank to perform **deposit**, **withdrawal**, and **view account details** operations.
+<h1 align="center">🏦 Multithreaded Bank & ATM System in C</h1>
+
+<p align="center">
+A concurrent banking simulation using <b>C</b>, <b>POSIX Threads</b>, <b>Semaphores</b>, and <b>Message Queues (IPC)</b>.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c">
+  <img src="https://img.shields.io/badge/IPC-Message%20Queues-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Synchronization-Semaphores-red?style=for-the-badge">
+</p>
+
+---
+
+## 📖 Overview
+
+This project simulates a **Bank Server** and multiple **ATM Clients** communicating through **POSIX Message Queues (IPC)**.
+
+The system demonstrates important Operating System concepts such as:
+
+- Concurrency
+- Synchronization
+- Semaphores & Mutexes
+- Inter-Process Communication (IPC)
+- Safe concurrent transactions
+
+Multiple ATM clients can perform:
+
+- 💰 Deposit
+- 💸 Withdraw
+- 🔍 View Account Details
+
+simultaneously while maintaining data consistency.
 
 ---
 
 ## ✨ Features
 
-- **Multiple Accounts**: The bank can handle multiple customer accounts.
-- **Concurrency**: Each account is protected by a mutex to allow concurrent transactions safely.
-- **ATM and Bank Interaction**: The ATM and Bank interact via **Message Passing** (using **message queues** for IPC).
-- **Semaphore for ATM Counter**: A semaphore is used to ensure that only one ATM can access a bank account at a time.
-- **User-friendly Menu**: The ATM offers a menu-based interface to interact with the user.
-
----
-
-## ⚙️ Requirements
-
-- **Linux-based OS** (e.g., Ubuntu, CentOS)
-- **GCC Compiler**
-- **pthread library** (`-lpthread`)
-- **Real-time library** for message queues (`-lrt`)
+- Multiple customer accounts
+- Concurrent ATM transactions
+- Semaphore & mutex synchronization
+- POSIX message queue communication
+- Safe shared resource handling
+- Menu-driven ATM interface
 
 ---
 
 ## 📂 Files
 
-- **bank_server.c** — Implements the Bank's logic for managing accounts, deposits, withdrawals, and handling ATM transactions.
-- **atm.c** — Implements the ATM's logic for interacting with the Bank, allowing users to deposit, withdraw, and view their account balance.
-- **README.md** — Project description and instructions.
+| File | Description |
+|---|---|
+| `bank_server.c` | Bank server logic and transaction handling |
+| `atm.c` | ATM client interface |
+| `runs_atms.sh` | Launch multiple ATM clients |
+| `README.md` | Project documentation |
 
 ---
 
-## 🚀 How to Compile
+## ⚙️ Requirements
 
-Open your terminal and run:
+- Linux-based OS
+- GCC Compiler
+- POSIX Thread Library (`-lpthread`)
+- Real-Time Library (`-lrt`)
+
+---
+
+## 🚀 Compilation
 
 ```bash
-gcc bank_server.c -o bank -lpthread -lrt
+gcc bank_server.c -o bank_server -lpthread -lrt
 gcc atm.c -o atm -lrt
 ```
-First run the bank server and then start atm.
+
+---
+
+## ▶️ Run the Project
+
+### Start Bank Server
+
+```bash
+./bank_server
+```
+
+### Start ATM Client
+
+```bash
+./atm
+```
+
+### Run Multiple ATM Clients
+
+```bash
+chmod +x runs_atms.sh
+./runs_atms.sh
+```
+
+---
+
+## 🧠 Concepts Used
+
+- POSIX Threads
+- Message Queues
+- Semaphores
+- Mutex Locks
+- Process Synchronization
+- Concurrent Programming
+
+---
+
+## 👨‍💻 Developed For
+
+Operating Systems & System Programming Concepts
