@@ -62,7 +62,7 @@ simultaneously while maintaining data consistency.
 
 ## ⚙️ Requirements
 
-- Linux-based OS
+- Ubuntu-based OS
 - GCC Compiler
 - POSIX Thread Library (`-lpthread`)
 - Real-Time Library (`-lrt`)
